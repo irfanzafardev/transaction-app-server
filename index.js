@@ -1,5 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
+import cors from "cors";
+
 // import dotenv from 'dotenv'
 import userRoutes from './routes/users.js'
 import productRoutes from './routes/products.js'
@@ -14,6 +16,7 @@ const connect = () => {
     throw err
   })
 }
+app.use(cors());
 
 app.use(express.json())
 
