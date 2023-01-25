@@ -28,3 +28,13 @@ export const getAllProduct = async (req, res) => {
     console.log(error)
   }
 }
+
+export const deleteProduct = async (req, res) => {
+  try {
+    const post = await Product.findById(req.params.id);
+    await post.delete();
+    res.status(200).json("Post has been deleted");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+}
